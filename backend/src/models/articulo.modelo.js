@@ -2,12 +2,12 @@
 const {Schema, model} = require('mongoose');
 
 const articuloSchema = new Schema ({
-    nombre: {type: String, require: true},
+    titulo: {type: String, require: true},
+    imagen: String,
     descripcion: String,
-    precio: Number,
-    stock: Number,
-    linkfoto: String
-
+    precio: String,
+    stock: Number
+    
 });
-
+// "Productos"--> nombre de la colección
 module.exports = model('Productos', articuloSchema);

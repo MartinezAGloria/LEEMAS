@@ -1,0 +1,25 @@
+{
+    "listaProductos":[
+        {
+            "titulo":"galletas",
+            "imagen":"https://pixabay.com/es/photos/galletas-nueces-palitos-de-canela-2991174/",
+            "descripcion":"pasabocas navideños",
+            "precio":"$10.000",
+            "stock": 40
+        },
+        {
+            "titulo":"copo de nieve",
+            "imagen":"https://pixabay.com/es/photos/copo-de-nieve-adornos-1823942/",
+            "descripcion":"adornos navideños",
+            "precio":"$4.000",
+            "stock": 39
+        },
+        {
+            "titulo":"adviento",
+            "imagen":"https://pixabay.com/es/photos/navidad-decoraci%c3%b3n-navide%c3%b1a-adviento-4646421/",
+            "descripcion":"decoracion navideña",
+            "precio":"$15.000",
+            "stock": 56
+        }
+    ]
+}

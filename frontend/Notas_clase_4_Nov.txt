@@ -1,0 +1,39 @@
+import './App.css';
+import React from 'react';
+import Producto from './Componentes/Producto';
+import { Container, Row } from 'reactstrap';
+import {listaProductos} from './listaProductos'
+
+class App extends React.Component{
+  constructor(){
+    super();
+    this.state = {
+      listaProductos
+    };
+
+  }
+  render(){
+    var arrayComponente= this.state.listaProductos.map(
+      (listaProductos, i) =>{
+        return(
+          <Producto
+            Key={i}
+            titulo={listaProductos.titulo}
+            imagen ={listaProductos.imagen}
+            descripcion ={listaProductos.descripcion}
+            precio = {listaProductos.precio}
+          />
+        )
+      }
+    )
+  return (
+    <Container>
+      <Row>
+        {arrayComponente}
+      </Row>
+    </Container>
+  );
+  }
+}
+
+export default App;
