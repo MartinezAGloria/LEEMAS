@@ -2,7 +2,7 @@ import './App.css';
 import React from 'react';
 //import Producto from './Componentes/Producto';
 //import { Container, Row } from 'reactstrap';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
 import CrearProducto from './Componentes/CrearProducto';
 import ListarProductos from './Componentes/ListarProductos';
 import Navegacion from './Componentes/Navegacion';
