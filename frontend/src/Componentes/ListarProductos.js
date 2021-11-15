@@ -9,8 +9,8 @@ export class ListarProductos extends Component {
     {
       titulo:'',
       imagen:'',
-      descripcion:'',
       precio:'',
+      descripcion:'',
       stock:'',
       listaProductos: []
     };

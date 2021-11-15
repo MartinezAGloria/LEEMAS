@@ -25,28 +25,26 @@ export class Navegacion extends Component {
               <li classname="nav-item">
                 
                   <Link className="nav-link" to="/listar">
-                  Productos
+                  Consulta libros
                   </Link>
                 
               </li>
               <li classname="nav-item">
                 <Link className= "nav-link" to="/crear">
-                  Crear Producto
+                  Mis libros
                 </Link>
               </li>
               <li classname="nav-item">
                 <a classname="nav-link" href="#">
-                  Pricing
+                  Otros
                 </a>
               </li>
-              <li classname="nav-item">
-                <a classname="nav-link disabled">Disabled</a>
-              </li>
+              
             </ul>
           </div>
         </div>
       </nav>
-    )
+    );
   }
 }
 

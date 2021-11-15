@@ -4,7 +4,7 @@ export class Principal extends Component {
     render() {
         return (
             <div>
-                Página Principal
+                'https://cloudfront-us-east-1.images.arcpublishing.com/eluniverso/SKLO7RBDFFC3TN37UJCLZNNOD4.jpg'
             </div>
         )
     }
