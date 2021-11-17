@@ -33,19 +33,22 @@ export default class CrearProducto extends Component {
         })
       }
       deleteProducto(id){
-          fetch(`http://localhost:4000/api/articulos/${id}`,{
-              method:"DELETE",
+          if(window.confirm('Va a eliminar el libro?')){
+                fetch(`http://localhost:4000/api/articulos/${id}`,{
+              method: "DELETE",
               headers: {
                   "Accept": "application/json",
-                  "Content-Type": "application/json"
-              }
+                  "Content-Type": "application/json",
+              },
           })
           .then(res => res.json())
           .then(data =>{
               console.log(data);
               alert("Producto eliminado");
               this.fetchProductos();
-          })
+          });
+          }
+          
       }
 
       editProducto(id){
@@ -60,8 +63,8 @@ export default class CrearProducto extends Component {
                   precio: data.precio,
                   stock: data.stock,
                   _id: data._id
-              })
-          })
+              });
+          });
       }
     agregarProducto(e){
         e.preventDefault();
@@ -78,19 +81,19 @@ export default class CrearProducto extends Component {
                 }),
                 headers:{
                     "Accept": "application/json",
-                    "Content-Type":"aplication/json"
-                }
+                    "Content-Type": "aplication/json"
+                },
             })
             .then(res =>res.json)
             .then(data => {
                 alert('Producto actualizado');
                 this.setState({
-                    titulo: '',
-                    imagen: '',
-                    descripcion: '',
-                    precio: '',
-                    stock: '',
-                    _id: ''
+                    titulo: "",
+                    imagen: "",
+                    descripcion: "",
+                    precio: "",
+                    stock: "",
+                    _id: ""
                 })
                 this.fetchProductos();
             })
