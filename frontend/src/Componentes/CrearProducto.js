@@ -9,6 +9,7 @@ export default class CrearProducto extends Component {
             descripcion: '',
             precio:'',
             stock:'',
+            contacto:'',
             _id: '',
             productos:[]
         }
@@ -44,7 +45,7 @@ export default class CrearProducto extends Component {
           .then(res => res.json())
           .then(data =>{
               console.log(data);
-              alert("Producto eliminado");
+              alert("Libro eliminado");
               this.fetchProductos();
           });
           }
@@ -68,7 +69,7 @@ export default class CrearProducto extends Component {
       }
     agregarProducto(e){
         e.preventDefault();
-        //si state._id es diferente a vacío->voy a actualizar:
+        //si state._id es diferente a vacío->voy a actualizar: PUT
         if (this.state._id){
             fetch(`http://localhost:4000/api/articulos/${this.state._id}`,{
                 method: "PUT",
@@ -77,7 +78,8 @@ export default class CrearProducto extends Component {
                     imagen: this.state.imagen,
                     descripcion: this.state.descripcion,
                     precio: this.state.precio,
-                    stock: this.state.stock
+                    stock: this.state.stock,
+                    contacto: this.state.contacto
                 }),
                 headers:{
                     "Accept": "application/json",
@@ -86,20 +88,21 @@ export default class CrearProducto extends Component {
             })
             .then(res =>res.json)
             .then(data => {
-                alert('Producto actualizado');
+                alert('Libro actualizado');
                 this.setState({
                     titulo: "",
                     imagen: "",
                     descripcion: "",
                     precio: "",
                     stock: "",
+                    contacto: "",
                     _id: ""
                 })
                 this.fetchProductos();
             })
           
         }
-        //si state._id no está vacío-> voy a crearlo:
+        //si state._id no está vacío-> voy a crearlo: POST
         else{
             fetch("http://localhost:4000/api/articulos",{
             method: "POST",
@@ -112,7 +115,7 @@ export default class CrearProducto extends Component {
         .then(res => res.json())
         .then(data=>{
             console.log(data);
-            alert("Producto creado");
+            alert("Libro creado");
             this.fetchProductos();
         })
 
@@ -131,7 +134,7 @@ export default class CrearProducto extends Component {
                          name="titulo"
                          className="form-control" 
                          type="text" 
-                         placeholder="Ingrese Título" 
+                         placeholder="Título" 
                          onChange={this.handleChange} 
                          value={this.state.titulo} 
                         />
@@ -152,7 +155,7 @@ export default class CrearProducto extends Component {
                         name="descripcion" 
                         className="form-control" 
                         type="text" 
-                        placeholder="Ingrese autor" 
+                        placeholder="Autor" 
                         onChange={this.handleChange} 
                         value={this.state.descripcion} 
                         />
@@ -162,7 +165,7 @@ export default class CrearProducto extends Component {
                         name="precio" 
                         className="form-control" 
                         type="text" 
-                        placeholder="Ingrese precio" 
+                        placeholder="Ciudad donde se encuentra el libro" 
                         onChange={this.handleChange} 
                         value={this.state.precio} 
                         />
@@ -172,9 +175,19 @@ export default class CrearProducto extends Component {
                         name="stock" 
                         className="form-control" 
                         type="number" 
-                        placeholder="Ingrese cantidad" 
+                        placeholder="Año de edición" 
                         onChange={this.handleChange} 
                         value={this.state.stock} 
+                        />
+                    </div>
+                    <div className="mb-3">
+                        <input 
+                        name="contacto" 
+                        className="form-control" 
+                        type="text" 
+                        placeholder="cuenta de correo" 
+                        onChange={this.handleChange} 
+                        value={this.state.contacto} 
                         />
                     </div>
                     <button type="submit" className="btn btn-primary">Guardar</button>
@@ -188,8 +201,9 @@ export default class CrearProducto extends Component {
                             <th>Titulo</th>
                             <th>Imagen</th>
                             <th>Autor</th>
-                            <th>Precio</th>
-                            <th>Cantidad</th>
+                            <th>Ciudad</th>
+                            <th>Año de Edición</th>
+                            <th>Contacto</th>
                             <th>Operacion</th>
                         </tr>
                     </thead>
@@ -202,19 +216,20 @@ export default class CrearProducto extends Component {
                                         <td>{producto.descripcion}</td>
                                         <td>{producto.precio}</td>
                                         <td>{producto.stock}</td>
-                                    
-                                    
-                                        <button onClick={()=>this.editProducto(producto._id)}
-                                        type="button"
-                                        className="btn btn-info">
-                                            Editar
-                                        </button>
-                                        <button onClick={()=>this.deleteProducto(producto._id)}
-                                        type="button"
-                                        className="btn btn-danger">
-                                            Borrar
-                                        </button>
-                                    
+                                        <td>{producto.contacto}</td>
+                                        <td>
+                                        
+                                            <button onClick={()=>this.editProducto(producto._id)}
+                                            type="button"
+                                            className="btn btn-info">
+                                                Editar
+                                            </button>
+                                            <button onClick={()=>this.deleteProducto(producto._id)}
+                                            type="button"
+                                            className="btn btn-danger">
+                                                Borrar
+                                            </button>
+                                        </td>
                                     </tr>
                                 
                                 );

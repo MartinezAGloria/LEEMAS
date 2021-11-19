@@ -9,18 +9,19 @@ articulosCtrl.getArticulos = async (req, res) =>{
 }
 
 articulosCtrl.createArticulo = async (req, res) =>{
-    const {titulo, imagen, precio, descripcion, stock} = req.body;
+    const {titulo, imagen, precio, descripcion, stock, contacto} = req.body;
     const newArticulo = new Articulo({
         titulo,
         imagen,
         precio,
         descripcion,
-        stock
+        stock,
+        contacto
     });
     await newArticulo.save();
     res.json('Articulo añadido')
 }
-//para obtener un articulo y luego eliminarlo
+//para obtener un articulo y luego eliminarlo ó actualizarlo
 articulosCtrl.getArticulo = async(req,res)=>{
     const articulo = await Articulo.findById(req.params.id)
     res.json(articulo)
@@ -32,9 +33,9 @@ articulosCtrl.deleteArticulo = async(req, res)=>{
 }
 
 articulosCtrl.updateArticulo = async(req, res)=>{
-    const{titulo, descripcion, precio, stock} = req.body;
+    const{titulo, descripcion, precio, stock, contacto} = req.body;
     await Articulo.findByIdAndUpdate(req.params.id,
-        {titulo, descripcion, precio, stock})
+        {titulo, descripcion, precio, stock, contacto})
         res.json('Articulo actualizado')
     }
 

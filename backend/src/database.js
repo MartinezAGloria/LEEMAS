@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 // crudweb29--> nombre de la base de datos.
-const URI = 'mongodb://localhost/crudweb29';
+const URI = 'mongodb://localhost:27017/crudweb29';
 
 mongoose.connect(URI);
 

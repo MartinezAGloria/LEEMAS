@@ -12,6 +12,7 @@ export class ListarProductos extends Component {
       precio:'',
       descripcion:'',
       stock:'',
+      contacto:'',
       listaProductos: []
     };
   }
@@ -40,6 +41,7 @@ export class ListarProductos extends Component {
           descripcion={listaProductos.descripcion}
           precio={listaProductos.precio}
           stock ={listaProductos.stock}
+          contacto ={listaProductos.contacto}
           />
         )
       }

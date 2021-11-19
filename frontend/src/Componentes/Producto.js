@@ -8,8 +8,10 @@ function Producto(props){
                 <CardImg src={props.imagen} />
                     <CardBody>
                         <CardTitle>{props.titulo}</CardTitle>
-                        <CardSubtitle><b>Precio:</b>{props.precio}</CardSubtitle>
                         <CardText>{props.descripcion}</CardText>
+                        <CardSubtitle><b>Ciudad:</b>{props.precio}</CardSubtitle>
+                        <CardSubtitle><b>Año Edicion:</b>{props.stock}</CardSubtitle>
+                        <CardSubtitle><b>Contacto:</b>{props.contacto}</CardSubtitle>
                         <button className="Boton">Pedir</button>
                     </CardBody>
 

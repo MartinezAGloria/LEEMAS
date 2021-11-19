@@ -6,7 +6,8 @@ const articuloSchema = new Schema ({
     imagen: String,
     descripcion: String,
     precio: String,
-    stock: Number
+    stock: Number,
+    contacto: String
     
 });
 // "Productos"--> nombre de la colección
