@@ -33,9 +33,9 @@ articulosCtrl.deleteArticulo = async(req, res)=>{
 }
 
 articulosCtrl.updateArticulo = async(req, res)=>{
-    const{titulo, descripcion, precio, stock, contacto} = req.body;
+    const{titulo, imagen, descripcion, precio, stock, contacto} = req.body;
     await Articulo.findByIdAndUpdate(req.params.id,
-        {titulo, descripcion, precio, stock, contacto})
+        {titulo, imagen, descripcion, precio, stock, contacto})
         res.json('Articulo actualizado')
     }
 

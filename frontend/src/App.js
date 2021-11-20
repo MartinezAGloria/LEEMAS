@@ -7,6 +7,7 @@ import CrearProducto from './Componentes/CrearProducto';
 import ListarProductos from './Componentes/ListarProductos';
 import Navegacion from './Componentes/Navegacion';
 import Principal from './Componentes/Principal';
+import CrearUsuario from './Componentes/CrearUsuario';
 
 class App extends React.Component{
     render(){
@@ -17,7 +18,7 @@ class App extends React.Component{
         <Route path="/crear" component = {CrearProducto}/>
         <Route path="/listar" component = {ListarProductos}/>
         <Route path="/" exact component = {Principal}/>
-      
+        <Route path="/crearUsuario" component = {CrearUsuario}/>
       
       </Router>
     );

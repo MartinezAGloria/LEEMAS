@@ -25,6 +25,7 @@ export default class CrearProducto extends Component {
     componentDidMount(){
         this.fetchProductos();
       }
+      // configura productos que es un array definido en la linea 14 para luego hacer una mapeo en la 214.
       fetchProductos(){
         fetch('http://localhost:4000/api/articulos')
         .then(res=> res.json())
@@ -63,6 +64,7 @@ export default class CrearProducto extends Component {
                   descripcion: data.descripcion,
                   precio: data.precio,
                   stock: data.stock,
+                  contacto: data.contacto,
                   _id: data._id
               });
           });
@@ -89,6 +91,7 @@ export default class CrearProducto extends Component {
             .then(res =>res.json)
             .then(data => {
                 alert('Libro actualizado');
+                //reseteamos el estado de todas las variables con vacio en el formulario
                 this.setState({
                     titulo: "",
                     imagen: "",
@@ -98,7 +101,7 @@ export default class CrearProducto extends Component {
                     contacto: "",
                     _id: ""
                 })
-                this.fetchProductos();
+                this.fetchProductos();   //recupera todos los documentos de la base de datos
             })
           
         }

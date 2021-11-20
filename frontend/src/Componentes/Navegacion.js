@@ -34,11 +34,12 @@ export class Navegacion extends Component {
                   Mis libros
                 </Link>
               </li>
-              <li classname="nav-item">
-                <a classname="nav-link" href="#">
-                  Otros
-                </a>
+              <li className="nav-item">
+                <Link className="nav-link" to="/crearUsuario">
+                  Crear Usuario
+                </Link>
               </li>
+              
               
             </ul>
           </div>
