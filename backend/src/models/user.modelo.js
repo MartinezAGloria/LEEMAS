@@ -1,6 +1,7 @@
-import {Schema, model} from 'mongoose';
-import bcrypt from 'bcryptjs'
-
+//import {Schema, model} from 'mongoose';
+const {Schema, model}= require ('mongoose');
+//import bcrypt from 'bcryptjs'
+const bcrypt = require ('bcryptjs');
 const usuarioSchema = new Schema(
     {
         username: {
@@ -14,8 +15,13 @@ const usuarioSchema = new Schema(
         password:{
             type: String,
             required: true
-        }
-
+        },
+        roles:[
+            {
+            ref:"Role",
+            type: Schema.Types.ObjectId,
+        },
+    ],
     },
     {
     timestamps: true,
@@ -26,5 +32,8 @@ const usuarioSchema = new Schema(
 usuarioSchema.statics.encryptPassword = async(password)=>{
     const salt = await bcrypt.genSalt(10);
     return await bcrypt.hash(password, salt);
-}
-export default model ("Usuario", usuarioSchema);
+};
+usuarioSchema.statics.comparePassword = async(password, receivedPassword)=>{
+    return await bcrypt.compare(password, receivedPassword);
+};
+module.exports = model ("User", usuarioSchema);

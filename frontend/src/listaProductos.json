@@ -5,21 +5,24 @@
             "imagen":"",
             "descripcion":"",
             "precio":"$1",
-            "stock": 1
+            "stock": 1,
+            "contacto":"" 
         },
         {
             "titulo":"",
             "imagen":"",
             "descripcion":"",
             "precio":"$1",
-            "stock": 1
+            "stock": 1,
+            "contacto":""
         },
         {
             "titulo":"",
             "imagen":"",
             "descripcion":"",
             "precio":"$1",
-            "stock": 1
+            "stock": 1,
+            "contacto":""
         }
     ]
 }
