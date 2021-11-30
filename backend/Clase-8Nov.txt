@@ -1,0 +1,32 @@
+Clase 8 Nov / 2021 Backend
+
+npm init -y
+npm install express mongoose cors--> ver en package.json las dependencias instaladas
+npm install nodemon -D --> ayuda para que c/ que grabemos cambios se reinicia el servidor; Dev Dependencies (package.json)
+
+Carpeta src:
+index.js--> iniciamos el servidor
+app.js --> código referente a express
+database.js--> conexión a base de datos
+
+Carpetas:
+controllers: funciones que se van a hacer cuando se ejecuten determinadas URL en el servidor.
+models: definimos Schema (en mongo)... campos que conforman el documento de la base de datos.
+routes: url para hacer peticiones al servidor.
+
+Inicialización del servidor:
+Ejecutamos el index.js: node src/index.js --> inicia localhost:4000--> cannot GET (ya está activo)
+
+Conexión a la base de datos:
+en una nueva terminal arrancamos MongoDB: mongod (en cualquier ruta si está configurado en variables de estado)
+
+middlewares: aplicaciones intermedias (funciones q se ejecutan antes de que las rutas lleguen  al servidor.
+
+cors--> conecta servidor del backend con el servidor del frontend.
+
+Definimos en package.json el script: "dev" que ejecuta: nodemon src/index,js para luego ejecutar en consola: npm run dev ubicándonos
+en la ruta backend y así arrancar el servidor que conecta con la base de datos. 
+
+
+
+

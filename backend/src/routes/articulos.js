@@ -7,11 +7,14 @@ router.route('/') // el signo '/' corresponde a la ruta básica: localhost/api/a
     .get(getArticulos)
     .post(createArticulo);
 
-router.route('/:id')
+router.route('/:id') 
     //como yo exporté el método articulosCtrl debo obtenerlo:
     .get(getArticulo)
     .delete(deleteArticulo)
     .put(updateArticulo)
+// para qué sirve esta ruta..??????????????????
+router.route('/:precio')
+    .get(getArticulo)
     
 module.exports = router;
 

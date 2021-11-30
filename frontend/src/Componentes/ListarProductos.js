@@ -4,13 +4,13 @@ import { Container, Row } from 'reactstrap';
 export class ListarProductos extends Component {
     constructor()
   {
-    super()
+    super();
     this.state = 
     {
       titulo:'',
       imagen:'',
-      precio:'',
       descripcion:'',
+      precio:'',
       stock:'',
       contacto:'',
       listaProductos: []
@@ -55,7 +55,7 @@ export class ListarProductos extends Component {
                 {arrayComponente}
                 </Row>
         
-      </Container>
+            </Container>
             
         )
     }

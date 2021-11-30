@@ -1,3 +1,1 @@
-export default{
-    SECRET: 'programacion'
-}
+module.exports = {SECRET: 'programacion'}

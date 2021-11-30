@@ -1,12 +1,12 @@
 //import {Schema, model} from 'mongoose';
 const {Schema, model}= require ('mongoose');
 //import bcrypt from 'bcryptjs'
-const bcrypt = require ('bcryptjs');
+const bcrypt = require ('bcryptjs')
 const usuarioSchema = new Schema(
     {
         username: {
             type: String, 
-            unique: true    
+            unique: true,    
         },
         email: {
             type: String,
@@ -14,7 +14,7 @@ const usuarioSchema = new Schema(
         },
         password:{
             type: String,
-            required: true
+            required: true,
         },
         roles:[
             {

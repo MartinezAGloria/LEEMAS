@@ -10,5 +10,5 @@ const articuloSchema = new Schema ({
     contacto: String
     
 });
-// "Productos"--> nombre de la colección
+// "Productos"--> nombre de la colección en MongoDB
 module.exports = model('Productos', articuloSchema);

@@ -9,13 +9,12 @@ function Producto(props){
                     <CardBody>
                         <CardTitle>{props.titulo}</CardTitle>
                         <CardText>{props.descripcion}</CardText>
-                        <CardSubtitle><b>Ciudad:</b>{props.precio}</CardSubtitle>
                         <CardSubtitle><b>Año Edicion:</b>{props.stock}</CardSubtitle>
+                        <CardSubtitle><b>Ciudad:</b>{props.precio}</CardSubtitle>
                         <CardSubtitle><b>Contacto:</b>{props.contacto}</CardSubtitle>
-                        <button className="Boton">Pedir</button>
+                        <button className="Boton">Reseña</button>
                     </CardBody>
-
-                
+                    
             </Card>
         </Col>
     )

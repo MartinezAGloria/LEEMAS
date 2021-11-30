@@ -1,7 +1,7 @@
 //import Usuario from "../models/user.modelo";
 const Usuario = require("../models/user.modelo");
-const Role = require("../models/roles.modelo");
-const userCtrl = {}
+const Role = require("../models/roles.modelo")
+const userCtrl = {};
 
 userCtrl.crearUsuario = async(req, res) =>{
     try{
@@ -11,14 +11,12 @@ userCtrl.crearUsuario = async(req, res) =>{
         username,
         email,
         password,
-        roles: rolesFound.map((role)=>role._id)
+        roles: rolesFound.map((role)=>role._id),
     });
 
-    //await user.save();
-    //res.json('Usuario añadido')
-
+    
     //encriptar el password
-    user.password = await Usuario.encryptPassword(user.password)
+    user.password = await Usuario.encryptPassword(user.password);
 
     //salvar nuevo usuario
     const savedUser = await user.save();
@@ -26,12 +24,10 @@ userCtrl.crearUsuario = async(req, res) =>{
         _id: savedUser._id,
         username: savedUser.username,
         email: savedUser.email,
-        roles: savedUser.roles
+        roles: savedUser.roles,
     });
     } catch(error) {
         console.log(error)
     }
-
 };
-
 module.exports = userCtrl;

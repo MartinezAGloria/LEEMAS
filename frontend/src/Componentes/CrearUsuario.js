@@ -1,66 +1,100 @@
-import React, { Component} from 'react'
-import {Container} from 'reactstrap'
+import React, { Component} from 'react';
+import {Container} from 'reactstrap';
+
 
 export class CrearUsuario extends Component {
     constructor(){
-        super()
+        super();
         this.state ={
-            username:'',
-            email:'',
-            password:''
+            username:"",
+            email:"",
+            password:"",
         };
         this.handleChange = this.handleChange.bind(this);
+        this.crearUsuario = this.crearUsuario.bind(this)
     }
 
 handleChange(e){
     const {name, value} = e.target;
     this.setState({
-        [name]: value
+        [name]: value,
     });
 }
 
 crearUsuario(e){
+    
     e.preventDefault();
-    fetch("http://localhost:4000/api/users",{
+    fetch("http://localhost:4000/api/auth/signup",{
             method: "POST",
             body: JSON.stringify(this.state),
             headers:{
                 "Accept": "application/json",
-                "Content-Type": "application/json"
+                "Content-Type": "application/json",
             }
         })
+        .then(res => res.json())
+        .then(data => {
+          console.log(data);
+          alert("Usuario creado desde CrearUsuario.js");
+          window.location.href = '/loginUsuario'
+          
+
+        });
 }
 
 render() {      
-        return(
+    return(
         <Container>
             <h4>Crear usuario</h4>
-                <form onSubmit={this.onSubmit} className = "form-group">
+                <form onSubmit={this.crearUsuario} className = "form-group">
                     <div className='mb-3'>
                         <label for= 'lblUsuario' className='form-label'>
                             Usuario
                         </label>
-                        <input type="text" className="form-control"
-                        id='lblUsuario' placeholder="Ingrese usuario" onChange="this.handleChange"/>
+                        <input
+                        name="username"
+                        type="text"
+                        className="form-control"
+                        id="lblUsuario"
+                        placeholder="Ingrese usuario"
+                        onChange={"this.handleChange"}
+                        value={this.state.username}
+                        />
                     </div>
                     <div className='mb-3'>
                         <label for= 'lblemail' className='form-label'>
                             e-mail
                         </label>
-                        <input type="email" className="form-control"
-                        id='lblemail' placeholder="Ingrese email" onChange="this.handleChange"/>
+                        <input
+                        name="email"
+                        type="email"
+                        className="form-control"
+                        id="lblemail"
+                        placeholder="Ingrese email"
+                        onChange={this.handleChange}
+                        value={this.state.email}
+                        />
+                        
                     </div>
                     <div className='mb-3'>
                         <label for= 'lblPassword' className='form-label'>
                             Password
                         </label>
-                        <input type="password" className="form-control"
-                        id='lblPassword' placeholder="Ingrese su clave" onChange="this.handleChange"/>
+                        <input
+                        name="password"
+                        type="password"
+                        className="form-control"
+                        id="lblPassword"
+                        placeholder="Ingrese su clave"
+                        onChange={"this.handleChange"}
+                        value={this.state.password}
+                        />
+
                     </div>
                     
                     <div className='mb-3'>
                         <button type='submit' className="btn btn-primary">
-                            Registrarse
+                            Sign Up
                         </button>
                     </div>
                 </form>
